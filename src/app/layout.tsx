@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://chashman.dev',
+    url: 'https://chashman.vercel.app',
     siteName: 'Chashman Portfolio',
     title: 'Chashman — Mechatronics & Control Engineer',
     description:
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
   },
   
   // Additional metadata
-  metadataBase: new URL('https://chashman.dev'),
+  metadataBase: new URL('https://chashman.vercel.app'),
   alternates: {
     canonical: '/',
   },

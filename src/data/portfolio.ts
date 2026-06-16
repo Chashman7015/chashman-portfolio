@@ -176,6 +176,14 @@ export const education: Education = {
 
 export const leadershipRoles: LeadershipRole[] = [
   {
+    role: 'Public Relations Secretary',
+    organization: 'Mechatronics Club, UET Lahore',
+  },
+  {
+    role: 'Director Technical',
+    organization: 'Mechatronics Club, UET Lahore',
+  },
+  {
     role: 'Trust School Outreach Program',
     organization: 'Mechatronics Club, UET Lahore',
   },
