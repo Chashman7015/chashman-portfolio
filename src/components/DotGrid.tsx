@@ -36,25 +36,62 @@ export default function DotGrid() {
     };
 
     const draw = () => {
-      time += 0.01;
+      time += 0.008;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      const spacing = 40;
+      const spacing = 35;
       const cols = Math.ceil(canvas.width / spacing) + 1;
       const rows = Math.ceil(canvas.height / spacing) + 1;
+
+      // Color palette for vibrant effect
+      const colors = [
+        { r: 59, g: 130, b: 246 },   // Blue
+        { r: 6, g: 182, b: 212 },    // Cyan
+        { r: 139, g: 92, b: 246 },   // Purple
+      ];
 
       for (let i = 0; i < cols; i++) {
         for (let j = 0; j < rows; j++) {
           const x = i * spacing;
           const y = j * spacing;
 
-          // Pulsing opacity based on position and time
-          const pulse = Math.sin(time + i * 0.1 + j * 0.1) * 0.15;
-          const opacity = 0.3 + pulse;
+          // Multi-layered pulsing for more dynamic effect
+          const pulse1 = Math.sin(time + i * 0.15 + j * 0.1) * 0.5 + 0.5;
+          const pulse2 = Math.sin(time * 0.7 + i * 0.1 - j * 0.15) * 0.5 + 0.5;
+          const combinedPulse = (pulse1 + pulse2) / 2;
 
+          // Size variation
+          const baseSize = 1.5;
+          const size = baseSize + combinedPulse * 1.5;
+
+          // Color selection based on position
+          const colorIndex = (i + j) % colors.length;
+          const color = colors[colorIndex];
+
+          // Gradient opacity based on distance from center
+          const centerX = canvas.width / 2;
+          const centerY = canvas.height / 2;
+          const distX = (x - centerX) / canvas.width;
+          const distY = (y - centerY) / canvas.height;
+          const distFromCenter = Math.sqrt(distX * distX + distY * distY);
+          
+          const baseOpacity = 0.15 + (1 - distFromCenter) * 0.2;
+          const opacity = baseOpacity + combinedPulse * 0.25;
+
+          // Draw glow effect
+          const gradient = ctx.createRadialGradient(x, y, 0, x, y, size * 3);
+          gradient.addColorStop(0, `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity})`);
+          gradient.addColorStop(1, `rgba(${color.r}, ${color.g}, ${color.b}, 0)`);
+          
           ctx.beginPath();
-          ctx.arc(x, y, 2, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(59, 130, 246, ${Math.max(0.15, Math.min(0.45, opacity))})`;
+          ctx.arc(x, y, size * 3, 0, Math.PI * 2);
+          ctx.fillStyle = gradient;
+          ctx.fill();
+
+          // Draw core dot
+          ctx.beginPath();
+          ctx.arc(x, y, size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${opacity + 0.2})`;
           ctx.fill();
         }
       }

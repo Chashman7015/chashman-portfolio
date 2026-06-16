@@ -15,6 +15,10 @@ export const personalInfo = {
   phone: '+92-341-5810670',
   linkedin: 'https://linkedin.com/in/chashman-zafar-225089242',
   location: 'Lahore, Pakistan',
+  availability: 'Available for opportunities',
+  yearsExperience: '1+',
+  projectsCompleted: '5+',
+  technologies: '10+',
 };
 
 export const aboutBio = `Graduate Mechatronics & Control Engineer with hands-on experience in PLC-based industrial automation and railway signaling systems. Currently deployed on the Thar Coal Railway Signaling Project — a safety-critical freight corridor requiring precise interlocking logic and regulatory compliance. Familiar with the full project lifecycle from design through FAT/SAT validation.`;
