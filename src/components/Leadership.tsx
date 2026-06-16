@@ -2,12 +2,34 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Users, Trophy, Star } from 'lucide-react';
+import { Users, Cpu, Settings, Heart } from 'lucide-react';
 import { leadershipRoles } from '@/data/portfolio';
 
 export default function Leadership() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  const getIcon = (index: number, role: string) => {
+    // PR Secretary and outreach programs use Users icon
+    if (index === 0 || role.toLowerCase().includes('outreach') || role.toLowerCase().includes('exhibition') || role.toLowerCase().includes('foundation')) {
+      return <Users size={24} className="text-accent-orange" />;
+    }
+    // Director Technical uses Cpu icon
+    if (role.toLowerCase().includes('director')) {
+      return <Cpu size={24} className="text-primary-accent" />;
+    }
+    return <Users size={24} className="text-accent-orange" />;
+  };
+
+  const getBgGradient = (index: number, role: string) => {
+    if (index === 0 || role.toLowerCase().includes('outreach') || role.toLowerCase().includes('exhibition') || role.toLowerCase().includes('foundation')) {
+      return 'from-accent-orange/20 to-accent-orange/5';
+    }
+    if (role.toLowerCase().includes('director')) {
+      return 'from-primary-accent/20 to-primary-accent/5';
+    }
+    return 'from-secondary-accent/20 to-secondary-accent/5';
+  };
 
   return (
     <section
@@ -15,7 +37,7 @@ export default function Leadership() {
       className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background-light to-background"
       aria-labelledby="leadership-heading"
     >
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         {/* Section Header */}
         <motion.div
           ref={ref}
@@ -38,44 +60,33 @@ export default function Leadership() {
           </p>
         </motion.div>
 
-        {/* Leadership Cards */}
-        <div className="space-y-6">
+        {/* Leadership Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {leadershipRoles.map((role, index) => (
             <motion.div
               key={role.role}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-              whileHover={{ x: 8 }}
+              transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
+              whileHover={{ y: -4 }}
               className="group relative"
             >
               {/* Gradient border */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-orange to-primary-accent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-orange to-primary-accent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               
-              <div className="relative flex items-center gap-6 bg-surface border border-border rounded-2xl p-6 hover:border-transparent transition-all">
+              <div className="relative h-full bg-surface border border-border rounded-xl p-5 hover:border-transparent transition-all">
                 {/* Icon */}
-                <div className="flex-shrink-0 p-4 bg-gradient-to-br from-accent-orange/20 to-primary-accent/20 rounded-xl">
-                  {index === 0 ? (
-                    <Users size={28} className="text-accent-orange" />
-                  ) : (
-                    <Trophy size={28} className="text-primary-accent" />
-                  )}
+                <div className={`w-12 h-12 bg-gradient-to-br ${getBgGradient(index, role.role)} rounded-lg flex items-center justify-center mb-4`}>
+                  {getIcon(index, role.role)}
                 </div>
 
                 {/* Content */}
-                <div className="flex-1">
-                  <h3 className="font-space font-bold text-xl text-text-primary mb-1 group-hover:text-primary-accent transition-colors">
-                    {role.role}
-                  </h3>
-                  <p className="font-inter text-text-muted">
-                    {role.organization}
-                  </p>
-                </div>
-
-                {/* Arrow */}
-                <div className="flex-shrink-0 p-2 bg-background rounded-lg">
-                  <Star size={20} className="text-secondary-accent" />
-                </div>
+                <h3 className="font-space font-bold text-base text-text-primary mb-1 group-hover:text-primary-accent transition-colors line-clamp-2">
+                  {role.role}
+                </h3>
+                <p className="font-inter text-xs text-text-muted">
+                  {role.organization}
+                </p>
               </div>
             </motion.div>
           ))}
