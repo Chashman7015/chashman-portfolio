@@ -35,7 +35,7 @@ export default function Hero() {
             {/* Profile container */}
             <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden border-4 border-surface shadow-2xl shadow-primary-accent/20">
               <Image
-                src="/chashman.png"
+                src="/chashman.webp"
                 alt={`${personalInfo.name} - Profile Picture`}
                 width={176}
                 height={176}
