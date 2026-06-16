@@ -25,7 +25,6 @@ export interface Education {
   dateRange: string;
   cgpa: string;
   recognition: string;
-  coursework: string[];
 }
 
 export interface LeadershipRole {

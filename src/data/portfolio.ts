@@ -44,7 +44,8 @@ export const skillGroups: SkillGroup[] = [
     icon: 'Cpu',
     skills: [
       'Siemens TIA Portal',
-      'PLC Programming (Ladder Logic, FBD)',
+      'PLC Programming (Ladder Logic)',
+      'Function Block Diagram (FBD)',
       'Siemens S7-1200',
       'Siemens LOGO! 8',
       'SCADA Systems',
@@ -97,9 +98,8 @@ export const experiences: Experience[] = [
     location: 'Lahore, Pakistan',
     bullets: [
       'Deployed on Thar Coal Railway Signaling Project — a safety-critical PLC-based signaling and interlocking system for an industrial freight corridor',
-      'Programmed Siemens S7-1200 PLC via TIA Portal (Ladder Logic & FBD) for signal control logic, track occupancy detection, and level crossing interlocking',
-      'Configured Siemens LOGO! 8 smart relay modules for auxiliary signaling and local control panels',
-      'Designed operator HMI screens for real-time signal status, manual overrides, and fault alarm display',
+      'Programmed Siemens S7-1200 PLC via TIA Portal using Ladder Logic for signal control logic, track occupancy detection, and level crossing interlocking',
+      'Developed logic for Siemens LOGO! 8 smart relay modules using Function Block Diagram (FBD) for auxiliary signaling and local control panels',
       'Conducted FAT and SAT for signaling panels, verifying interlocking logic against railway safety regulations',
     ],
   },
@@ -109,9 +109,9 @@ export const experiences: Experience[] = [
     dateRange: 'Aug 2025 – Jan 2026',
     location: 'Lahore, Pakistan',
     bullets: [
-      'Delivered instruction in PLC programming, control systems, and microcontroller-based systems',
+      'Delivered instruction in control systems and microcontroller-based systems',
       'Developed structured curriculum covering process control, sensor integration, and automated system design',
-      'Mentored students on safety interlocking, embedded programming, and industrial troubleshooting',
+      'Mentored students on embedded programming and industrial troubleshooting',
     ],
   },
   {
@@ -139,20 +139,20 @@ export const projects: Project[] = [
   {
     title: 'Automatic Traffic Light Control System (PLC/SCADA)',
     date: 'Nov – Dec 2024',
-    tags: ['Siemens PLC', 'FBD', 'HMI', 'SCADA'],
+    tags: ['Siemens PLC', 'Ladder Logic', 'FBD'],
     bullets: [
-      'PLC programmed with FBD for normal and emergency control modes',
-      'HMI with real-time status display and mode switching',
-      'SCADA integration for centralized monitoring, data logging, and alarms',
+      'Developed PLC program using Ladder Logic for traffic light control with normal and emergency modes',
+      'Implemented Function Block Diagram (FBD) for timing logic and pedestrian crossing sequences',
+      'Configured SCADA system for real-time traffic monitoring and centralized control',
     ],
   },
   {
     title: 'Automatic Bottle Repositioning System (Hydraulics/Pneumatics)',
     date: 'Nov – Dec 2023',
-    tags: ['Pneumatics', 'Actuators', 'Safety Interlocks'],
+    tags: ['Pneumatics', 'Actuators', 'Sensors'],
     bullets: [
-      'Actuator-sensor logic for automated conveyor belt repositioning',
-      'Safety interlocking and fail-safe mechanisms',
+      'Designed pneumatic actuator system with sensor feedback for automated conveyor belt repositioning',
+      'Integrated proximity sensors for object detection and position verification',
     ],
   },
   {
@@ -160,8 +160,8 @@ export const projects: Project[] = [
     date: 'May 2024 – Jul 2025',
     tags: ['Python', 'ML', 'Computer Vision', 'Sensor Fusion'],
     bullets: [
-      'ML-based navigation with real-time sensor fusion — 90% accuracy',
-      'Computer vision for dynamic obstacle avoidance',
+      'Developed ML-based navigation system with real-time sensor fusion — 90% accuracy',
+      'Implemented computer vision algorithms for dynamic obstacle avoidance',
     ],
   },
 ];
@@ -172,25 +172,23 @@ export const education: Education = {
   dateRange: 'Nov 2021 – Jun 2025',
   cgpa: '3.26/4.00',
   recognition: 'HEC Recognized, PEC Accredited',
-  coursework: [
-    'Control Systems',
-    'PLC Programming',
-    'Industrial Automation',
-    'Robotics',
-    'Machine Learning',
-    'Signal Processing',
-    'Embedded Systems',
-    'Mechanical Design',
-  ],
 };
 
 export const leadershipRoles: LeadershipRole[] = [
   {
-    role: 'Public Relations Secretary',
+    role: 'Trust School Outreach Program',
     organization: 'Mechatronics Club, UET Lahore',
   },
   {
-    role: 'Director Technical',
+    role: 'Trust School Exhibition',
+    organization: 'Mechatronics Club, UET Lahore',
+  },
+  {
+    role: 'Lahore Science Mela Exhibition',
+    organization: 'Khwarizmi Science Society',
+  },
+  {
+    role: 'Deaf Foundation Outreach Program',
     organization: 'Mechatronics Club, UET Lahore',
   },
 ];

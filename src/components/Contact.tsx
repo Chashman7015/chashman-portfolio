@@ -46,7 +46,7 @@ export default function Contact() {
             Get In Touch
           </h2>
           <p className="font-inter text-text-muted max-w-2xl mx-auto">
-            Open to opportunities in industrial automation, railway signaling, and control engineering. Let&apos;s discuss how I can contribute to your team.
+            Open to opportunities in industrial automation, control systems, and embedded engineering. Let&apos;s discuss how I can contribute to your team.
           </p>
         </motion.div>
 

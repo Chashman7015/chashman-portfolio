@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { GraduationCap, Award, BookOpen, Calendar } from 'lucide-react';
+import { GraduationCap, Award, Calendar, CheckCircle } from 'lucide-react';
 import { education } from '@/data/portfolio';
 
 export default function Education() {
@@ -69,7 +69,7 @@ export default function Education() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div className="grid grid-cols-3 gap-4">
               <div className="bg-background/50 border border-border rounded-xl p-4 text-center">
                 <p className="font-mono text-xs text-secondary-accent uppercase tracking-wider mb-1">CGPA</p>
                 <p className="font-space font-bold text-2xl text-text-primary">{education.cgpa}</p>
@@ -82,30 +82,31 @@ export default function Education() {
                 <p className="font-mono text-xs text-secondary-accent uppercase tracking-wider mb-1">Recognition</p>
                 <p className="font-inter text-sm text-text-muted">HEC & PEC</p>
               </div>
-              <div className="bg-background/50 border border-border rounded-xl p-4 text-center">
-                <p className="font-mono text-xs text-secondary-accent uppercase tracking-wider mb-1">Courses</p>
-                <p className="font-space font-bold text-2xl text-text-primary">{education.coursework.length}</p>
-              </div>
             </div>
 
-            {/* Coursework */}
-            <div>
+            {/* Key Highlights */}
+            <div className="mt-6 pt-6 border-t border-border">
               <h4 className="flex items-center gap-2 font-space font-semibold text-lg text-text-primary mb-4">
-                <BookOpen size={18} className="text-secondary-accent" />
-                Relevant Coursework
+                <CheckCircle size={18} className="text-accent-green" />
+                Key Competencies
               </h4>
-              <div className="flex flex-wrap gap-2">
-                {education.coursework.map((course, index) => (
-                  <motion.span
-                    key={course}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ duration: 0.3, delay: 0.3 + index * 0.05 }}
-                    className="font-mono text-sm px-4 py-2 bg-gradient-to-r from-background to-surface border border-border rounded-xl text-text-light hover:border-primary-accent/50 hover:text-primary-accent transition-colors"
-                  >
-                    {course}
-                  </motion.span>
-                ))}
+              <div className="grid sm:grid-cols-2 gap-3">
+                <div className="flex items-center gap-3 text-text-muted">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary-accent" />
+                  <span className="font-inter text-sm">Industrial Automation & Control Systems</span>
+                </div>
+                <div className="flex items-center gap-3 text-text-muted">
+                  <div className="w-1.5 h-1.5 rounded-full bg-secondary-accent" />
+                  <span className="font-inter text-sm">PLC Programming & SCADA</span>
+                </div>
+                <div className="flex items-center gap-3 text-text-muted">
+                  <div className="w-1.5 h-1.5 rounded-full bg-accent-purple" />
+                  <span className="font-inter text-sm">Embedded Systems & Microcontrollers</span>
+                </div>
+                <div className="flex items-center gap-3 text-text-muted">
+                  <div className="w-1.5 h-1.5 rounded-full bg-accent-green" />
+                  <span className="font-inter text-sm">Robotics & Machine Learning</span>
+                </div>
               </div>
             </div>
           </div>
